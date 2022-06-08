@@ -2,12 +2,9 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import 'babel-polyfill'
-import chalk from 'chalk'
-import { eventBus } from './eventBus'
 
 import bodyParser from 'body-parser'
 
-import { UserManager } from './userManager'
 
 /*
 
@@ -27,10 +24,6 @@ app.get('/init', async (req, res) => {
   res.send({ test: 'hello innit' })
 })
 
-app.post('/admin/orderPayment', async (req, res) => {
-  res.sendStatus(200)
-})
-
 app.listen(port, () => {
-  console.log(chalk.bgBlackBright('Scriptomatics :: Server Live on port', port))
+  console.log('Dimmortal :: Server Live on port', port)
 })
