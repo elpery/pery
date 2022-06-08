@@ -1,0 +1,37 @@
+{
+  "name": "es6-microservice-template",
+  "version": "1.0.0",
+  "description": "A template for node-based ES6 microservices",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "axios": "^0.21.2",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "chalk": "^4.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "firebase": "^7.14.2",
+    "firebase-admin": "^8.11.0",
+    "nodemon": "^1.19.3"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "serve-babel": "node ./build/index.js",
+    "build": "yarn clean && yarn build-babel",
+    "start": "yarn build && node ./build/index.js",
+    "heroku-postbuild": "yarn && yarn build",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "nodev": "babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
